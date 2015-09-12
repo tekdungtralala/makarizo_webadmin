@@ -18,11 +18,18 @@
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="bower_components/lodash/lodash.min.js"></script>
 
 	<script src="app/app.module.js"></script>
+	<script src="app/core/core.module.js"></script>
+	<script src="app/core/dataservice.factory.js"></script>
+
 	<script src="app/dashboard/dashboard.module.js"></script>
 	<script src="app/dashboard/dashboard.controller.js"></script>
 	<script src="app/dashboard/dashboard.route.js"></script>
+	<script src="app/allplayer/allplayer.module.js"></script>
+	<script src="app/allplayer/allplayer.controller.js"></script>
+	<script src="app/allplayer/allplayer.route.js"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,7 +55,7 @@
 							 <span class="icon-bar"></span>
 							 <span class="icon-bar"></span>
 						 </button>
-						 <a class="navbar-brand" href="#">Makarizo Web Admin</a>
+						 <a class="navbar-brand" href="#/">Makarizo Web Admin</a>
 				</div>
 				 </div>
 			</div>
@@ -59,7 +66,7 @@
 					<!-- sidebar -->
 					<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 							<ul class="nav">
-								<li><a href="">Semua Pemain</a></li>
+								<li><a href="#/allplayer">Semua Pemain</a></li>
 								<li><a href="">Tipe Redeem</a></li>
 								<li><a href="">Redeem Score</a></li>
 								<li><a href="">Undi Pemenang</a></li>              

@@ -53,3 +53,22 @@ body {
   }
 }
 
+.mk-allplayer .maxmin-label {
+  min-width: 80px;
+}
+
+.mk-allplayer .maxmin-label.text-right {
+  text-align: right;
+}
+
+.mk-allplayer .mk-pagination {
+  width: 100%;
+}
+
+.mk-allplayer .mk-table {
+  margin-bottom: 0px;
+}
+
+.mk-allplayer .mk-pagination div {
+  float: right;
+}

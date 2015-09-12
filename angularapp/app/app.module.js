@@ -4,7 +4,9 @@
 	angular.module('app', [
 		'ui.router',
 
-		'app.dashboard'
+		'app.core',
+		'app.dashboard',
+		'app.allplayer'
 	])
 	.config(configRoute);
 

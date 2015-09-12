@@ -1,0 +1,96 @@
+<span class="mk-allplayer">
+	<h3>
+		Daftar Semua Pemain
+	</h3>
+	<table class="table table-striped mk-table">
+		<thead>
+			<tr>
+				<th class="col-md-1 col-sm-1">
+					#
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Row : {{vm.maxRow}} <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="" ng-click="vm.changeMaxRow(10)">10</a></li>
+							<li><a href="" ng-click="vm.changeMaxRow(20)">20</a></li>
+							<li><a href="" ng-click="vm.changeMaxRow(50)">50</a></li>
+							<li><a href="" ng-click="vm.changeMaxRow(100)">100</a></li>
+							<li><a href="" ng-click="vm.changeMaxRow(vm.allPlayers.length)">All</a></li>
+						</ul>
+					</div>
+				</th>
+				<th class="col-md-4 col-sm-4">Nama Pemain</th>
+				<th class="col-md-3 col-sm-3">
+					<span ng-show="vm.scoreFilterMode">
+						Total Score 
+						<button ng-click="vm.changeScoreFilterMode()"
+							type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</button>
+					</span>
+					<span ng-show="!vm.scoreFilterMode">
+						Filter Score
+						<button ng-click="vm.changeScoreFilterMode()"
+							type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						</button>
+						<br/>
+						<div class="input-group input-group-sm {{vm.errorMsgs['minScore']}}">
+							<span class="input-group-addon maxmin-label text-right" 
+								id="sizing-addon3">
+								Min Score
+							</span>
+							<input 
+								ng-model="vm.scoreFilter.min"
+								type="text" class="form-control" placeholder="Number" aria-describedby="sizing-addon3">
+						</div>
+						<div class="input-group input-group-sm {{vm.errorMsgs['maxScore']}}">
+							<span class="input-group-addon maxmin-label text-right"
+								id="sizing-addon3">
+								Max Score
+							</span>
+							<input 
+								ng-model="vm.scoreFilter.max"
+								type="text" class="form-control" placeholder="Number" aria-describedby="sizing-addon3">
+						</div>
+						<button ng-click="vm.filterPlayer()"
+							type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+							<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+							Filter
+						</button>
+						<button ng-click="vm.resetPlayer()"
+							type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+							<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+							Clear
+						</button>
+					</span>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(i, val) in vm.showPlayers">
+				<td>{{val[2]}}</td>
+				<td>{{val[0]}}</td>
+				<td>{{val[1]}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="mk-pagination">
+		<div class="btn-group text-right" role="group" aria-label="Default button group">
+			<button ng-click="vm.changePage(vm.offset - 1)" 
+				ng-disabled="vm.offset == 0"
+				type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</button>
+			<button type="button" class="btn btn-default">{{vm.offset + 1}}</button>
+			<button ng-click="vm.changePage(vm.offset + 1)" 
+				ng-disabled="((vm.offset + 1) * vm.maxRow) >= vm.filteredPlayers.length"
+				type="button" class="btn btn-default">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</button>
+		</div>
+	<div>
+
+</span>
