@@ -1,0 +1,91 @@
+<h3>
+	Tipe Redeem
+</h3>
+<span class="mk-redeemtype">
+	<button ng-click="vm.openModal()"
+		type="button" class="btn btn-default btn-success" aria-label="Left Align">
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		Tambah Redeem Type
+	</button>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Batas Score</th>
+				<th>Aksi</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="val in vm.redeemtypes">
+				<td>{{val[0]}}</td>
+				<td>{{val[1]}}</td>
+				<td>{{val[2]}}</td>
+				<td>
+					<button 
+						ng-click="vm.openModal(val)"
+						type="button" class="btn btn-default btn-sm btn-primary" aria-label="Left Align">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					</button>
+					<button 
+						ng-click="vm.deleteConfirm(val)"
+						type="button" class="btn btn-default btn-sm btn-danger" aria-label="Left Align">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</span>
+
+<script type="text/ng-template" id="deleteConfirm.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Tipe Redeem</h3>
+	</div>
+	<div class="modal-body">
+		Are you sure want to delete <strong>{{vm.modalAttr.val[1]}}</strong>?
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="vm.deleteData()">Save</button>
+		<button class="btn btn-default" type="button" ng-click="vm.closeModal()">Cancel</button>
+	</div>
+</script>
+
+
+<script type="text/ng-template" id="myModalContent.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Tipe Redeem</h3>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="form-group" ng-hide="vm.modalAttr.isNew">
+				<label for="inputId" class="col-sm-4 control-label">Id</label>
+				<div class="col-sm-8">
+					<input ng-model="vm.modalAttr.val[0]"
+						type="text" class="form-control" id="inputId" disabled/>
+				</div>
+			</div>
+			<div class="form-group {{vm.errorMsg.name}}">
+				<label for="inputName" class="col-sm-4 control-label">Name</label>
+				<div class="col-sm-8">
+					<input 
+						ng-model="vm.modalAttr.val[1]"
+						type="text" class="form-control" id="inputName" placeholder="Name"/>
+				</div>
+			</div>
+			<div class="form-group {{vm.errorMsg.score}}">
+				<label for="inputScore" class="col-sm-4 control-label">Batas Score</label>
+				<div class="col-sm-8">
+					<input 
+						ng-model="vm.modalAttr.val[2]"
+						type="text" class="form-control" id="inputScore" placeholder="Batas Score"/>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="vm.saveData()">Save</button>
+		<button class="btn btn-default" type="button" ng-click="vm.closeModal()">Cancel</button>
+	</div>
+</script>
