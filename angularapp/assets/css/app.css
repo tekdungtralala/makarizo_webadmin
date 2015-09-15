@@ -1,5 +1,6 @@
-body {
-  padding-top: 51px;  
+.mk-menu {
+  text-decoration: none;
+  background-color: #eee;
 }
 .text-center {
   padding-top: 20px;

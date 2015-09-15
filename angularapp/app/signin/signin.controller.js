@@ -5,7 +5,7 @@
 		.module('app.signin')
 		.controller('SignIn', SignIn);
 
-	function SignIn() {
+	function SignIn($rootScope, $state, dataservice) {
 		var vm = this;
 
 		vm.username = null;
@@ -27,6 +27,19 @@
 				hasError = true;
 			}
 
+			if (!hasError) {
+				dataservice.adminLogin(vm.username, vm.password)
+					.then(afterSubmit)
+					.catch(afterSubmit);
+			}
+		}
+
+		function afterSubmit(result) {
+			console.log(result.data)
+			if (result.data === 'true') {
+				$rootScope.isLogin = true;
+				$state.go('dashboard');
+			}
 		}
 	}
 

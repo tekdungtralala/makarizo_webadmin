@@ -11,16 +11,34 @@
 		var getSaveRTUrl = 'postredeemtype.php';
 		var getDeleteRTUrl = 'deleteRedeemType.php';
 		var getIsLoginUrl = 'isLogin.php';
+		var getAdminLoginUrl = 'adminlogin.php';
 
 		var service = {
 			getAllPlayers: getAllPlayers,
 			getRedeemType: getRedeemType,
 			saveRedeemType: saveRedeemType,
 			deleteRedeemType: deleteRedeemType,
-			chekAdminLogin: chekAdminLogin
+			chekAdminLogin: chekAdminLogin,
+			adminLogin: adminLogin
 		};
 
 		return service;
+
+		function adminLogin(username, password) {
+			var data = {
+				username: username,
+				password: password
+			};
+
+			$rootScope.promise = $http({
+				method: 'POST',
+				url: generateUrl(getAdminLoginUrl),
+				data: $.param(data),
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+			});
+
+			return $rootScope.promise;
+		}
 
 		function chekAdminLogin() {
 			if (!$rootScope.isLogin) {
@@ -29,6 +47,7 @@
 
 				function isAdminLogged(result) {
 					if (result.data !== 'true') $state.go('signin');
+					else $rootScope.isLogin = true;
 				}
 			}
 		}
