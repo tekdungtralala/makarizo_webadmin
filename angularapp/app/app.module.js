@@ -4,6 +4,7 @@
 	var myApp = angular.module('app', [
 		'ui.router',
 		'ui.bootstrap',
+		'cgBusy',
 
 		'app.core',
 		'app.signin',

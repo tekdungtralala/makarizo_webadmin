@@ -35,7 +35,6 @@
 		}
 
 		function afterSubmit(result) {
-			console.log(result.data)
 			if (result.data === 'true') {
 				$rootScope.isLogin = true;
 				$state.go('dashboard');
