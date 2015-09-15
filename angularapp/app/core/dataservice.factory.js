@@ -5,20 +5,33 @@
 		.module('app.core')
 		.factory('dataservice', Dataservice);
 
-	function Dataservice($q, $http, $rootScope) {
+	function Dataservice($q, $http, $rootScope, $state) {
 		var getAllPlayersUrl = 'highscore.php';
 		var getRedeemTypeUrl = 'redeemtype.php';
 		var getSaveRTUrl = 'postredeemtype.php';
 		var getDeleteRTUrl = 'deleteRedeemType.php';
+		var getIsLoginUrl = 'isLogin.php';
 
 		var service = {
 			getAllPlayers: getAllPlayers,
 			getRedeemType: getRedeemType,
 			saveRedeemType: saveRedeemType,
-			deleteRedeemType: deleteRedeemType
+			deleteRedeemType: deleteRedeemType,
+			chekAdminLogin: chekAdminLogin
 		};
 
 		return service;
+
+		function chekAdminLogin() {
+			if (!$rootScope.isLogin) {
+				$rootScope.promise = $http.get(generateUrl(getIsLoginUrl))
+					.then(isAdminLogged);
+
+				function isAdminLogged(result) {
+					if (result.data !== 'true') $state.go('signin');
+				}
+			}
+		}
 
 		function deleteRedeemType(id) {
 			var url = generateUrl(getDeleteRTUrl) + '?id=' + id;

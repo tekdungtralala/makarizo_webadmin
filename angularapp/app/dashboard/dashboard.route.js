@@ -11,8 +11,15 @@
 				url: '/',
 				templateUrl: 'app/dashboard/dashboard.html',
 				controller: 'Dashboard',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				onEnter: onEnter
 			});
+
+		function onEnter($state, $rootScope, dataservice) {
+			if (!$rootScope.isLogin) {
+				dataservice.chekAdminLogin();
+			}
+		}
 	}
 
 })();

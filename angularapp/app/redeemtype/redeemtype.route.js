@@ -11,8 +11,15 @@
 				url: '/redeemtype',
 				templateUrl: 'app/redeemtype/redeemtype.html',
 				controller: 'RedeemType',
-				controllerAs: 'vm'
+				controllerAs: 'vm',
+				onEnter: onEnter
 			});
+
+		function onEnter($state, $rootScope, dataservice) {
+			if (!$rootScope.isLogin) {
+				dataservice.chekAdminLogin();
+			}
+		}
 	}
 
 })();

@@ -6,7 +6,7 @@
 		.controller('Dashboard', Dashboard);
 
 	// Dashboard.$inject = ['dataservice', 'datautil','$state'];
-	function Dashboard() {
+	function Dashboard($rootScope) {
 
 		activate();
 		function activate() {

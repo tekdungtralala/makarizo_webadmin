@@ -25,6 +25,9 @@
 	<script src="app/core/core.module.js"></script>
 	<script src="app/core/dataservice.factory.js"></script>
 
+	<script src="app/signin/signin.module.js"></script>
+	<script src="app/signin/signin.controller.js"></script>
+	<script src="app/signin/signin.route.js"></script>
 	<script src="app/dashboard/dashboard.module.js"></script>
 	<script src="app/dashboard/dashboard.controller.js"></script>
 	<script src="app/dashboard/dashboard.route.js"></script>
@@ -68,7 +71,9 @@
 				<div class="row row-offcanvas row-offcanvas-left">
 					
 					<!-- sidebar -->
-					<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+					<div 
+						ng-if="isLogin"
+						class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 							<ul class="nav">
 								<li><a href="#/">Home</a></li>
 								<li><a href="#/allplayer">Semua Pemain</a></li>
@@ -79,7 +84,7 @@
 					</div>
 			
 					<!-- main area -->
-					<div class="col-xs-12 col-sm-10" ui-view>
+					<div class="col-xs-12 col-sm-10 col-md-12" ui-view>
 					</div><!-- /.col-xs-12 main -->
 			</div><!--/.row-->
 		</div><!--/.container-->
