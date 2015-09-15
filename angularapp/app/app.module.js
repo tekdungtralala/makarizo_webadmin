@@ -18,7 +18,14 @@
 		$urlRouterProvider.otherwise('/');
 	};
 
-	function appRun($rootScope) {
+	function appRun($rootScope, $state, dataservice) {
+		$rootScope.adminLogout = adminLogout;
+
+		function adminLogout() {
+			dataservice.adminLogin(null, null);
+			$rootScope.isLogin = false;
+			$state.go('signin');
+		}
 	}
 
 })();

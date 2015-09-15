@@ -55,7 +55,9 @@
 	<div id="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		<nav 
+			ng-if="isLogin"
+			class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>
@@ -75,7 +77,7 @@
 						<li class="mk-menu"><a href="#/redeemtype">Tipe Redeem</a></li>
 						<li class="mk-menu"><a href="">Redeem Score</a></li>
 						<li class="mk-menu"><a href="">Undi Pemenang</a></li> 
-						<li class="mk-menu"><a href="">Keluar</a></li> 
+						<li class="mk-menu"><a href="" ng-click="adminLogout()">Keluar</a></li> 
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->
@@ -84,7 +86,7 @@
 		</nav>
 
 		<!-- Page Content -->
-		<div id="page-wrapper">
+		<div id="page-wrapper{{isLogin?'':'---'}}">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12" ui-view>
