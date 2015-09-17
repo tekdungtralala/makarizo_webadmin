@@ -2,15 +2,15 @@
 	'use strict';
 
 	angular
-		.module('app.allplayer')
+		.module('app.redeemscore')
 		.config(configRoute);
 
 	function configRoute($stateProvider) {
 		$stateProvider
-			.state('allplayer', {
-				url: '/allplayer',
-				templateUrl: 'app/allplayer/allplayer.html',
-				controller: 'AllPlayer',
+			.state('redeemscore', {
+				url: '/redeemscore',
+				templateUrl: 'app/redeemscore/redeemscore.html',
+				controller: 'RedeemScore',
 				controllerAs: 'vm',
 				onEnter: onEnter
 			});
@@ -20,7 +20,6 @@
 				dataservice.chekAdminLogin();
 			}
 		}
-
 	}
 
 })();

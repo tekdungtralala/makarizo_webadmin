@@ -10,7 +10,8 @@
 		'app.signin',
 		'app.dashboard',
 		'app.allplayer',
-		'app.redeemtype'
+		'app.redeemtype',
+		'app.redeemscore'
 	])
 	.config(configRoute)
 	.run(appRun);

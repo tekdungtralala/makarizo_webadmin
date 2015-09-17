@@ -1,0 +1,35 @@
+<h3>
+	Daftar Redeem Pemain
+</h3>
+<span class="mk-redeemscore">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>
+					<div class="col-xs-6">
+						Nama Item
+					</div>
+					<div class="col-xs-6">
+						Jumlah Redeem
+					</div>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="u in vm.users">
+				<td>{{u.name}}</td>
+				<td>
+					<div ng-repeat="p in u.products" class="row">
+						<div class="col-xs-6">
+							{{p.name}}
+						</div>
+						<div class="col-xs-6">
+							{{p.total}}
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</span>

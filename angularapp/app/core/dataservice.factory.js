@@ -12,6 +12,7 @@
 		var getDeleteRTUrl = 'deleteRedeemType.php';
 		var getIsLoginUrl = 'isLogin.php';
 		var getAdminLoginUrl = 'adminlogin.php';
+		var getRedeemScoreUrl = 'redeemscore.php';
 
 		var service = {
 			getAllPlayers: getAllPlayers,
@@ -19,10 +20,20 @@
 			saveRedeemType: saveRedeemType,
 			deleteRedeemType: deleteRedeemType,
 			chekAdminLogin: chekAdminLogin,
-			adminLogin: adminLogin
+			adminLogin: adminLogin,
+			getRedeemScores: getRedeemScores
 		};
 
 		return service;
+
+		function getRedeemScores() {
+			$rootScope.promise = $http.get(generateUrl(getRedeemScoreUrl))
+				.then(getData)
+				.catch(function(message) {
+			});
+
+			return $rootScope.promise;
+		}
 
 		function adminLogin(username, password) {
 			var data = {

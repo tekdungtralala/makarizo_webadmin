@@ -96,10 +96,11 @@
 
 			var tmpPlayers = [];
 			_.each(vm.allPlayers, function(d, i) {
-				for (var i = 0; i < 8; i++) {
+				for (var i = 0; i <= 0; i++) {
 					var tmp = angular.copy(d);
-					tmp[0] = tmp[0] + ' ' + randNumber();
-					tmp[1] = parseInt(tmp[1]) + randNumber();
+
+					// tmp[0] = tmp[0] + ' ' + randNumber();
+					// tmp[1] = parseInt(tmp[1]) + randNumber();
 					tmpPlayers.push(tmp);
 				}
 			});
