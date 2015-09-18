@@ -57,7 +57,12 @@
   float: right;
 }
 
-
+.mk-redeemscore .mk-table-player {
+  margin-bottom: 0px;
+}
+.mk-redeemscore .mk-pag-table-player {
+  margin-top: 5px;
+}
 
 .cg-busy-default-wrapper {
   background-color: rgba(0, 0, 0, 0.2);
