@@ -1,35 +1,88 @@
 <h3>
 	Daftar Redeem Pemain
 </h3>
+<ul class="nav nav-tabs" ng-hide="true">
+	<li role="presentation" 
+		class="{{vm.tab == 'group-by-user' ? 'active' : ''}}"
+		ng-click="vm.changeTab('group-by-user')">
+		<a href="">Group By User</a>
+	</li>
+	<li role="presentation"
+		class="{{vm.tab == 'all-row' ? 'active' : ''}}"
+		ng-click="vm.changeTab('all-row')">
+		<a href="">All Row</a>
+	</li>
+</ul>
 <span class="mk-redeemscore">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>
-					<div class="col-xs-6">
-						Nama Item
-					</div>
-					<div class="col-xs-6">
-						Jumlah Redeem
-					</div>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="u in vm.users">
-				<td>{{u.name}}</td>
-				<td>
-					<div ng-repeat="p in u.products" class="row">
+	<div ng-show="vm.tab == 'group-by-user'">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>
 						<div class="col-xs-6">
-							{{p.name}}
+							Nama Item
 						</div>
 						<div class="col-xs-6">
-							{{p.total}}
+							Jumlah Redeem
 						</div>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="u in vm.users">
+					<td>{{u.name}}</td>
+					<td>
+						<div ng-repeat="p in u.products" class="row">
+							<div class="col-xs-6">
+								{{p.name}}
+							</div>
+							<div class="col-xs-6">
+								{{p.total}}
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-show="vm.tab == 'all-row'">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>
+						<input type="text" 
+							placeholder=" FIlter by Nama"
+							ng-model="vm.allRowFilter.name" 
+							ng-change="vm.filterByName()"/>
+					</td>
+					<td>
+						<input type="text" 
+							placeholder=" FIlter by Nama Item"
+							ng-model="vm.allRowFilter.itemName" 
+							ng-change="vm.filterByItemName()"/>
+					</td>
+				</tr>
+				<tr>
+					<th>Nama Pemain</th>
+					<th>Nama Item</th>
+					<th ng-click="vm.toggleTotalSort()">
+						<a href="">Jumlah Redeem 
+							<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true" 
+								ng-show="vm.totalSortOpt"></span>
+							<span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"
+								ng-hide="vm.totalSortOpt"></span>
+						</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="r in vm.showAllrow | orderBy:'total':vm.totalSortOpt">
+					<td>{{r.name}}</td>
+					<td>{{r.itemName}}</td>
+					<td>{{r.total}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </span>
