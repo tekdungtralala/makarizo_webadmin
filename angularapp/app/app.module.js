@@ -11,7 +11,8 @@
 		'app.dashboard',
 		'app.allplayer',
 		'app.redeemtype',
-		'app.redeemscore'
+		'app.redeemscore',
+		'app.redeemhistory'
 	])
 	.config(configRoute)
 	.run(appRun);

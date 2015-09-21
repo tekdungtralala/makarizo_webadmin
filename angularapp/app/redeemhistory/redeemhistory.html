@@ -1,0 +1,47 @@
+<h3>
+	History Pemenang Undian
+</h3>
+<span class="mk-redeemhistory">
+
+
+	<div class="input-group">
+		<span class="input-group-addon" id="sizing-addon2">Pilih Periode</span>
+		<div class="btn-group">
+			<button type="button" 
+				class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
+				aria-haspopup="true" aria-expanded="false">
+				<span class="caret"></span>
+			</button>
+			<button type="button" disabled
+				class="btn btn-default">
+				{{vm.selectedPeriod}}&nbsp;
+			</button>
+			<ul class="dropdown-menu">
+				<li ng-repeat="p in vm.periods">
+					<a href="" ng-click="vm.selectPeriode(p[0], p[2])">{{p[0]}} - {{p[2]}}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+		<table
+			class="table table-striped"
+			ng-show="vm.selectedPeriod != null">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>
+						<div class="col-xs-6">
+							Nama Item
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="u in vm.selectedUserWins">
+					<td>{{u[2]}}</td>
+					<td>{{u[1]}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+</span>

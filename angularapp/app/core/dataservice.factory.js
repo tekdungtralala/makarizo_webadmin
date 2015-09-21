@@ -13,6 +13,7 @@
 		var getIsLoginUrl = 'isLogin.php';
 		var getAdminLoginUrl = 'adminlogin.php';
 		var getRedeemScoreUrl = 'redeemscore.php';
+		var getRedeemHistoryUrl = 'redeemhistory.php';
 
 		var service = {
 			getAllPlayers: getAllPlayers,
@@ -21,10 +22,20 @@
 			deleteRedeemType: deleteRedeemType,
 			chekAdminLogin: chekAdminLogin,
 			adminLogin: adminLogin,
-			getRedeemScores: getRedeemScores
+			getRedeemScores: getRedeemScores,
+			getRedeemHistory: getRedeemHistory
 		};
 
 		return service;
+
+		function getRedeemHistory() {
+			$rootScope.promise = $http.get(generateUrl(getRedeemHistoryUrl))
+				.then(getData)
+				.catch(function(message) {
+			});
+
+			return $rootScope.promise;
+		}
 
 		function getRedeemScores() {
 			$rootScope.promise = $http.get(generateUrl(getRedeemScoreUrl))
